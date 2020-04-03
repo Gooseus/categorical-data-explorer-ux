@@ -8,7 +8,9 @@ function intToColName(i){
 		i = (i - t) / 26 | 0;
 	}
 
-	return s || undefined;
+	if(!s) return undefined;
+
+	return s[0] + s.slice(1).toLowerCase();
 }
 
 (function() {

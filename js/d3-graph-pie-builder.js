@@ -49,17 +49,17 @@
 		// These need to be passed in so we have access to more application data
 		function nodeToolTipTxt(d) {
 			let txt =  [`${d.name} (${d.id})`];
-			txt.push(`Cardinality: ${d.card}`);
-			txt.push(`Entropy: ${d.entropy}`);
-			txt.push(`Transmission: ${d.entropy}`);
+			txt.push(`|${d.id}|: ${d.card}`);
+			txt.push(`H(${d.id}): ${d.entropy}`);
+			// txt.push(`Transmission: ${d.entropy}`);
 			return txt.join("<br />");
 		};
 		// These need to be passed in so we have access to more application data
 		function linkToolTipTxt(l) {
 			let txt =  [`${l.source.name} - ${l.target.name}`];
-			txt.push(`Ind Model Entropy: ${l.ind_entropy}`);
-			txt.push(`Model Entropy: ${l.ind_entropy}`);
-			txt.push(`Information Capture: ${l.captured_info}`);
+			txt.push(`H(${l.source.id}:${l.target.id}): ${l.ind_entropy}`);
+			txt.push(`H(${l.source.id}${l.target.id}): ${l.entropy}`);
+			txt.push(`I(${l.source.id}${l.target.id}): ${l.captured_info}`);
 			return txt.join("<br />");
 		}
 
